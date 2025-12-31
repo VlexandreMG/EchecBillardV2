@@ -2,52 +2,75 @@ package layout;
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
 
 public class RootLayout {
 
     private BorderPane borderPane;
 
     public RootLayout() {
-        //Initialiser le borderPane
         borderPane = new BorderPane();
-
-        //Conig de base 
         borderPane.setPrefSize(800, 600);
-
-        //Visualiser les zones durant le dev
-        applyDebugStyles();
+        applyDebugBorders();
     }
 
     public BorderPane getBorderPane() {
         return borderPane;
     }
 
-    private void applyDebugStyles() {
-         // Créer des labels simples avec bordures
-        Label topLabel = new Label("TOP");
-        topLabel.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-padding: 10px;");
+    private void applyDebugBorders() {
+        // Créer des conteneurs avec des tailles fixes pour bien voir les zones
+        Region topRegion = new Region();
+        topRegion.setStyle("-fx-border-color: red; -fx-border-width: 3px; -fx-background-color: #ffeeee;");
+        topRegion.setMinHeight(80); // Hauteur fixe pour TOP
+        topRegion.setPrefHeight(80);
         
-        Label centerLabel = new Label("CENTER");
-        centerLabel.setStyle("-fx-border-color: green; -fx-border-width: 2px; -fx-padding: 10px;");
+        Region centerRegion = new Region();
+        centerRegion.setStyle("-fx-border-color: green; -fx-border-width: 3px; -fx-background-color: #eeffee;");
         
-        Label bottomLabel = new Label("BOTTOM");
-        bottomLabel.setStyle("-fx-border-color: blue; -fx-border-width: 2px; -fx-padding: 10px;");
+        Region bottomRegion = new Region();
+        bottomRegion.setStyle("-fx-border-color: blue; -fx-border-width: 3px; -fx-background-color: #eeeeff;");
+        bottomRegion.setMinHeight(60); // Hauteur fixe pour BOTTOM
+        bottomRegion.setPrefHeight(60);
+        
+        Region leftRegion = new Region();
+        leftRegion.setStyle("-fx-border-color: orange; -fx-border-width: 3px; -fx-background-color: #ffffee;");
+        leftRegion.setMinWidth(120); // Largeur fixe pour LEFT
+        leftRegion.setPrefWidth(120);
+        
+        Region rightRegion = new Region();
+        rightRegion.setStyle("-fx-border-color: purple; -fx-border-width: 3px; -fx-background-color: #ffeeff;");
+        rightRegion.setMinWidth(120); // Largeur fixe pour RIGHT
+        rightRegion.setPrefWidth(120);
+        
+        // Ajouter des labels au-dessus des régions pour identifier
+        Label topLabel = new Label("TOP ZONE");
+        topLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+        
+        Label centerLabel = new Label("CENTER ZONE");
+        centerLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        
+        Label bottomLabel = new Label("BOTTOM ZONE");
+        bottomLabel.setStyle("-fx-font-size: 14px;");
         
         Label leftLabel = new Label("LEFT");
-        leftLabel.setStyle("-fx-border-color: orange; -fx-border-width: 2px; -fx-padding: 10px;");
+        leftLabel.setStyle("-fx-font-size: 14px; -fx-rotate: 90;");
         
         Label rightLabel = new Label("RIGHT");
-        rightLabel.setStyle("-fx-border-color: purple; -fx-border-width: 2px; -fx-padding: 10px;");
+        rightLabel.setStyle("-fx-font-size: 14px; -fx-rotate: -90;");
         
         // Ajouter au BorderPane
-        borderPane.setTop(topLabel);
-        borderPane.setCenter(centerLabel);
-        borderPane.setBottom(bottomLabel);
-        borderPane.setLeft(leftLabel);
-        borderPane.setRight(rightLabel);
+        borderPane.setTop(topRegion);
+        borderPane.setCenter(centerRegion);
+        borderPane.setBottom(bottomRegion);
+        borderPane.setLeft(leftRegion);
+        borderPane.setRight(rightRegion);
+        
+        // Superposer les labels (optionnel)
+        // Pour l'instant on garde simple
     }
 
-    //Methodes pour acceder au differentes zones 
+    // Méthodes d'accès aux zones
     public void setTopContent(javafx.scene.Node node) {
         borderPane.setTop(node);
     }
@@ -67,7 +90,4 @@ public class RootLayout {
     public void setRightContent(javafx.scene.Node node) {
         borderPane.setRight(node);
     }
-
-    
 }
-

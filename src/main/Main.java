@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import layout.RootLayout;
+import node.RectanglePane;
 
 public class Main extends Application {
     
@@ -12,6 +13,12 @@ public class Main extends Application {
         // 1. Créer le Root Layout (notre BorderPane personnalisé)
         RootLayout rootLayout = new RootLayout();
         
+        //Initialiser le board 
+        RectanglePane rectangle = new RectanglePane();
+
+        //Ajouter le rectangle au BorderPane
+        rootLayout.setCenterContent(rectangle);
+
         // 2. Créer la Scene avec ce layout comme racine
         Scene scene = new Scene(rootLayout.getBorderPane(), 800, 600);
         

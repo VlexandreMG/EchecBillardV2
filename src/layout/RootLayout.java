@@ -25,8 +25,8 @@ public class RootLayout {
         topRegion.setMinHeight(80); // Hauteur fixe pour TOP
         topRegion.setPrefHeight(80);
         
-        Region centerRegion = new Region();
-        centerRegion.setStyle("-fx-border-color: green; -fx-border-width: 3px; -fx-background-color: #eeffee;");
+        //Region centerRegion = new Region();
+        //centerRegion.setStyle("-fx-border-color: green; -fx-border-width: 3px;");
         
         Region bottomRegion = new Region();
         bottomRegion.setStyle("-fx-border-color: blue; -fx-border-width: 3px; -fx-background-color: #eeeeff;");
@@ -44,24 +44,24 @@ public class RootLayout {
         rightRegion.setPrefWidth(120);
         
         // Ajouter des labels au-dessus des régions pour identifier
-        Label topLabel = new Label("TOP ZONE");
-        topLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+        // Label topLabel = new Label("TOP ZONE");
+        // topLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
         
-        Label centerLabel = new Label("CENTER ZONE");
-        centerLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        // Label centerLabel = new Label("CENTER ZONE");
+        // centerLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
         
-        Label bottomLabel = new Label("BOTTOM ZONE");
-        bottomLabel.setStyle("-fx-font-size: 14px;");
+        // Label bottomLabel = new Label("BOTTOM ZONE");
+        // bottomLabel.setStyle("-fx-font-size: 14px;");
         
-        Label leftLabel = new Label("LEFT");
-        leftLabel.setStyle("-fx-font-size: 14px; -fx-rotate: 90;");
+        // Label leftLabel = new Label("LEFT");
+        // leftLabel.setStyle("-fx-font-size: 14px; -fx-rotate: 90;");
         
-        Label rightLabel = new Label("RIGHT");
-        rightLabel.setStyle("-fx-font-size: 14px; -fx-rotate: -90;");
+        // Label rightLabel = new Label("RIGHT");
+        // rightLabel.setStyle("-fx-font-size: 14px; -fx-rotate: -90;");
         
         // Ajouter au BorderPane
         borderPane.setTop(topRegion);
-        borderPane.setCenter(centerRegion);
+        //borderPane.setCenter(centerRegion);
         borderPane.setBottom(bottomRegion);
         borderPane.setLeft(leftRegion);
         borderPane.setRight(rightRegion);

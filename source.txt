@@ -1,3 +1,5 @@
 src/layout/RootLayout.java
-src/node/RectanglePane.java
+src/game/components/ChessBoard.java
+src/game/components/Piece.java
+src/game/constants/GameConstants.java
 src/main/Main.java

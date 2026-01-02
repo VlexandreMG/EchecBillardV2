@@ -4,29 +4,33 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import layout.RootLayout;
-import node.RectanglePane;
+import game.components.ChessBoard;
+import game.components.Piece;
 
 public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        // 1. Créer le Root Layout (notre BorderPane personnalisé)
+        // Créer le layout racine
         RootLayout rootLayout = new RootLayout();
         
-        //Initialiser le board 
-        RectanglePane rectangle = new RectanglePane();
-
-        //Ajouter le rectangle au BorderPane
-        rootLayout.setCenterContent(rectangle);
-
-        // 2. Créer la Scene avec ce layout comme racine
-        Scene scene = new Scene(rootLayout.getBorderPane(), 800, 600);
+        // Créer le plateau d'échecs
+        ChessBoard chessBoard = new ChessBoard();
         
-        // 3. Configurer la fenêtre principale (Stage)
-        primaryStage.setTitle("Mon Projet JavaFX - Structure Propre");
+        // Ajouter quelques pièces de test
+        chessBoard.addPiece(new Piece(0, 0, "R", 5, false)); // Roi noir
+        chessBoard.addPiece(new Piece(7, 7, "R", 5, true));  // Roi blanc
+        chessBoard.addPiece(new Piece(3, 3, "Q", 4, true));  // Dame blanche
+        
+        // Placer le plateau au centre
+        rootLayout.setCenter(chessBoard);
+        
+        // Créer la scène
+        Scene scene = new Scene(rootLayout, 1000, 850);
+        
+        // Configurer la fenêtre
+        primaryStage.setTitle("Échecs Ping-Pong - JavaFX Version");
         primaryStage.setScene(scene);
-        
-        // 4. Afficher la fenêtre
         primaryStage.show();
     }
     
